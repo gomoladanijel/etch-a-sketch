@@ -24,6 +24,7 @@ body {
 
 .title {
     margin-bottom: 24px;
+    font-family: "Cabin Sketch", sans-serif;
     font-size: 48px;
     text-align: center;
 }
@@ -34,6 +35,7 @@ body {
 }
 
 .buttons button {
+    font-family: sans-serif;
     padding: 8px;
     border: none;
     background-color: #ccc;
