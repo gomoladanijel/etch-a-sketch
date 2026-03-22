@@ -13,6 +13,10 @@ function changeColor() {
 }
 
 function createGrid(size) {
+    let isMouseDown = false;
+    window.onmousedown = () => (isMouseDown = true);
+    window.onmouseup = () => (isMouseDown = false);
+
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
             const cell = document.createElement("div");
@@ -22,9 +26,16 @@ function createGrid(size) {
 
             grid.appendChild(cell);
 
-            cell.addEventListener("mouseover", () => {
+            cell.addEventListener("mousedown", (e) => {
+                e.preventDefault();
                 cell.style.backgroundColor = changeColor();
-            })
+            });
+
+            cell.addEventListener("mouseenter", () => {
+                if (isMouseDown) {
+                    cell.style.backgroundColor = changeColor();
+                }
+            });
 
             resetBtn.addEventListener("click", () => {
                 cell.style.backgroundColor = "#fff";
