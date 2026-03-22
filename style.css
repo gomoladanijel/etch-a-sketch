@@ -1,0 +1,57 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.title {
+    margin-bottom: 24px;
+    font-size: 48px;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 24px;
+}
+
+.buttons button {
+    padding: 8px;
+    border: none;
+    background-color: #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #ddd;
+}
+
+.buttons button:active {
+    background-color: #ccc;
+}
+
+.grid {
+    width: 480px;
+    height: 480px;
+    display: flex;
+    flex-wrap: wrap;
+    outline: 2px solid #000;
+}
