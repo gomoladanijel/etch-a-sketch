@@ -20,6 +20,7 @@ function createGrid(size) {
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
             const cell = document.createElement("div");
+            cell.classList.add("grid-cell");
 
             cell.style.width = `${480 / size}px`;
             cell.style.height = `${480 / size}px`;
@@ -36,12 +37,14 @@ function createGrid(size) {
                     cell.style.backgroundColor = changeColor();
                 }
             });
-
-            resetBtn.addEventListener("click", () => {
-                cell.style.backgroundColor = "#fff";
-            });
         }
     }
+}
+
+function resetGrid() {
+    const cells = document.querySelectorAll(".grid-cell");
+
+    cells.forEach(cell => cell.style.backgroundColor = "#fff");
 }
 
 createGrid(DEFAULT_GRID_SIZE);
@@ -60,3 +63,5 @@ createGridBtn.addEventListener("click", () => {
     grid.textContent = "";
     createGrid(+gridSize);
 });
+
+resetBtn.addEventListener("click", resetGrid);
