@@ -5,9 +5,9 @@ const resetBtn = document.querySelector(".reset-btn");
 const DEFAULT_GRID_SIZE = 10;
 
 function changeColor() {
-    const RED = Math.floor(Math.random() * 255);
-    const GREEN = Math.floor(Math.random() * 255);
-    const BLUE = Math.floor(Math.random() * 255);
+    const RED = Math.floor(Math.random() * 256);
+    const GREEN = Math.floor(Math.random() * 256);
+    const BLUE = Math.floor(Math.random() * 256);
 
     return `rgb(${RED}, ${GREEN}, ${BLUE})`;
 }
