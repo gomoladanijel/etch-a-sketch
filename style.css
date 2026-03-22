@@ -12,6 +12,7 @@ html {
 
 body {
     height: 100vh;
+    background-color: #eee;
 }
 
 .container {
@@ -51,6 +52,7 @@ body {
 .grid {
     width: 480px;
     height: 480px;
+    background-color: #fff;
     display: flex;
     flex-wrap: wrap;
     outline: 2px solid #000;
