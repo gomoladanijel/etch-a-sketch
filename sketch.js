@@ -5,6 +5,10 @@ const resetBtn = document.querySelector(".reset-btn");
 
 const DEFAULT_GRID_SIZE = 10;
 
+let isMouseDown = false;
+window.onmousedown = () => (isMouseDown = true);
+window.onmouseup = () => (isMouseDown = false);
+
 function changeColor() {
     const RED = Math.floor(Math.random() * 256);
     const GREEN = Math.floor(Math.random() * 256);
@@ -14,10 +18,6 @@ function changeColor() {
 }
 
 function createGrid(size) {
-    let isMouseDown = false;
-    window.onmousedown = () => (isMouseDown = true);
-    window.onmouseup = () => (isMouseDown = false);
-
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
             const cell = document.createElement("div");
@@ -44,10 +44,6 @@ function createGrid(size) {
 
 function eraseGridCell() {
     const cells = document.querySelectorAll(".grid-cell");
-
-    let isMouseDown = false;
-    window.onmousedown = () => (isMouseDown = true);
-    window.onmouseup = () => (isMouseDown = false);
 
     cells.forEach(cell => {
         cell.addEventListener("mousedown", (e) => {
