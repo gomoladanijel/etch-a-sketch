@@ -1,5 +1,6 @@
 const grid = document.querySelector(".grid");
 const createGridBtn = document.querySelector(".create-grid-btn");
+const eraseBtn = document.querySelector(".erase-btn");
 const resetBtn = document.querySelector(".reset-btn");
 
 const DEFAULT_GRID_SIZE = 10;
@@ -41,6 +42,27 @@ function createGrid(size) {
     }
 }
 
+function eraseGridCell() {
+    const cells = document.querySelectorAll(".grid-cell");
+
+    let isMouseDown = false;
+    window.onmousedown = () => (isMouseDown = true);
+    window.onmouseup = () => (isMouseDown = false);
+
+    cells.forEach(cell => {
+        cell.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+            cell.style.backgroundColor = "#fff";
+        });
+
+        cell.addEventListener("mouseenter", () => {
+            if (isMouseDown) {
+                cell.style.backgroundColor = "#fff";
+            }
+        });
+    });
+}
+
 function resetGrid() {
     const cells = document.querySelectorAll(".grid-cell");
 
@@ -63,5 +85,7 @@ createGridBtn.addEventListener("click", () => {
     grid.textContent = "";
     createGrid(+gridSize);
 });
+
+eraseBtn.addEventListener("click", eraseGridCell);
 
 resetBtn.addEventListener("click", resetGrid);
