@@ -1,6 +1,7 @@
 const grid = document.querySelector(".grid");
 const createGridBtn = document.querySelector(".create-grid-btn");
 const eraseBtn = document.querySelector(".erase-btn");
+const colorizeBtn = document.querySelector(".colorize-btn");
 const resetBtn = document.querySelector(".reset-btn");
 
 const DEFAULT_GRID_SIZE = 10;
@@ -27,17 +28,6 @@ function createGrid(size) {
             cell.style.height = `${480 / size}px`;
 
             grid.appendChild(cell);
-
-            cell.addEventListener("mousedown", (e) => {
-                e.preventDefault();
-                cell.style.backgroundColor = changeColor();
-            });
-
-            cell.addEventListener("mouseenter", () => {
-                if (isMouseDown) {
-                    cell.style.backgroundColor = changeColor();
-                }
-            });
         }
     }
 }
@@ -54,6 +44,23 @@ function eraseGridCell() {
         cell.addEventListener("mouseenter", () => {
             if (isMouseDown) {
                 cell.style.backgroundColor = "#fff";
+            }
+        });
+    });
+}
+
+function colorizeGridCell() {
+    const cells = document.querySelectorAll(".grid-cell");
+
+    cells.forEach(cell => {
+        cell.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+            cell.style.backgroundColor = changeColor();
+        });
+
+        cell.addEventListener("mouseenter", () => {
+            if (isMouseDown) {
+                cell.style.backgroundColor = changeColor();
             }
         });
     });
@@ -83,5 +90,5 @@ createGridBtn.addEventListener("click", () => {
 });
 
 eraseBtn.addEventListener("click", eraseGridCell);
-
+colorizeBtn.addEventListener("click", colorizeGridCell);
 resetBtn.addEventListener("click", resetGrid);
